@@ -32,7 +32,7 @@ export default function Accordion() {
 
   return <div className="wrapper">
     <div className="card"
-    onClick={() => setMultiVisible(!multiVisible)}>
+    onClick={() => {setMultiVisible(!multiVisible); setVisible({})}}>
       {
         multiVisible ?
         <div>Multiple Answers are allowed</div> :
