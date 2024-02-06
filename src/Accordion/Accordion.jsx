@@ -11,22 +11,13 @@ export default function Accordion() {
   const handleShow = (id) => {
     // settings for multiple answers visible
     if (multiVisible) {
-      if (visible[id]) {
-        setVisible({...visible, [id]: !visible[id]})
-      }
-      if (!visible[id]) {
-        setVisible({...visible, [id]: true})
-      }
+
+      setVisible(visible[id] ? {...visible, [id]: !visible[id]} : {...visible, [id]: true})
     }
 
     // Settings for single answer visible
     if (!multiVisible) {
-      if (visible[id]) {
-        setVisible({[id]: !visible[id]})
-      }
-      if (!visible[id]) {
-        setVisible({[id]: true})
-      }
+      setVisible(visible[id] ? {[id]: !visible[id]} : {[id]: true})
     }
   }
 
