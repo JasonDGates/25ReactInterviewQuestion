@@ -11,7 +11,6 @@ export default function Accordion() {
   const handleShow = (id) => {
     // settings for multiple answers visible
     if (multiVisible) {
-
       setVisible(visible[id] ? {...visible, [id]: !visible[id]} : {...visible, [id]: true})
     }
 
@@ -33,7 +32,10 @@ export default function Accordion() {
     {data.map(dataItem => (
       <div key={dataItem.id} className="card"
       onClick={() => handleShow(dataItem.id)}>
-        <div className="question">{dataItem.question}</div>
+        <div className="question">
+          <div>{dataItem.question}</div>
+          <span>{visible[dataItem.id] ? "-" : "+"}</span>
+        </div>
         {visible[dataItem.id] === true && <div className="answer">{dataItem.answer}</div>}
       </div>
 
